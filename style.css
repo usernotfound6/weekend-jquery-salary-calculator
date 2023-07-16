@@ -1,6 +1,6 @@
 /* GLOBAL TYPOGRAPHY */
 body {
-    background-color: #dcdcdc;
+    background-color: #b5ebb0;
     font-family: 'Roboto', sans-serif;
     color: #313131;
     font-size: 1.25em;
@@ -18,8 +18,10 @@ body {
   }
   header {
     height: 8em;
-    background-color: #7a7a7a;
+    background-color: #62aa66;
     text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(10, 57, 28)
   }
   main {
     flex: auto;
@@ -28,7 +30,7 @@ body {
   }
   footer {
     height: 8em;
-    background-color: #7a7a7a;
+    background-color: #3c8971;
     text-align: center;
   }
   
@@ -49,12 +51,14 @@ body {
   input {
     padding: .5em;
     width: 150px;
-    background: #FCFCFC;
+    background: #f8ffb9;
     border: 1px solid;
   }
   button {
     padding: .5em;
     width: 75px;
+    color: #7eca82;
+    background: #1a4330;
   }
   
   
@@ -73,11 +77,11 @@ body {
     min-width: 3.5em;
   }
   thead {
-    background: #7a7a7a;
-    color: #fcfcfc;
+    background: #327142;
+    color: hsl(0, 0%, 100%);
   }
   tbody tr:nth-child(odd){ 
-    background: #fcfcfc;
+    background: #cefdee;
   }
   tbody tr:nth-child(even){
     background: #dcdcdc;

@@ -3,7 +3,7 @@ $(document).ready(onReady);
 function onReady() {
   console.log("Hey jQuery!");
 
-// Handlers go here
+  // Handlers go here
   $(".submit-button").on("click", handleSubmit);
   $("#table").on("click", "#deleteButton", handleDelete);
 }
@@ -42,14 +42,14 @@ function handleSubmit(event) {
     <td><button id="deleteButton">💰</button></td>
     </tr>`);
 
-   // Clear input fields
-   $("#firstnameInput").val("");
-   $("#lastnameInput").val("");
-   $("#idInput").val("");
-   $("#titleInput").val("");
-   $("#annualsalaryInput").val("");
+  // Clear input fields
+  $("#firstnameInput").val("");
+  $("#lastnameInput").val("");
+  $("#idInput").val("");
+  $("#titleInput").val("");
+  $("#annualsalaryInput").val("");
 
-   calculateAndAppendSum();
+  calculateAndAppendSum();
 }
 
 function calculateAndAppendSum() {
@@ -64,6 +64,13 @@ function calculateAndAppendSum() {
   });
 
   // Append the sum to the footer
-  $("footer").html(`<h5>Total Monthly Cost: $${sum}</h5>`);
-}
+  const footer = $("footer");
+  footer.html(`<h5>Total Annual Salary: $${sum}</h5>`);
 
+  // Add red background color if total annual salary exceeds $20,000
+  if (sum > 20000) {
+    footer.css("background-color", "red");
+  } else {
+    footer.css("background-color", "grey");
+  }
+}
