@@ -3,6 +3,7 @@ $(document).ready(onReady);
 function onReady() {
   console.log("Hey jQuery!");
 
+// Handlers go here
   $(".submit-button").on("click", handleSubmit);
   $("#table").on("click", "#deleteButton", handleDelete);
 }
@@ -11,6 +12,7 @@ function handleDelete() {
   $(this).parent().parent().remove();
 }
 
+// functions go here
 function handleSubmit(event) {
   event.preventDefault();
   console.log("inside handleSubmit");
@@ -39,4 +41,29 @@ function handleSubmit(event) {
     <td>${annualsalaryText}</td>
     <td><button id="deleteButton">💰</button></td>
     </tr>`);
+
+   // Clear input fields
+   $("#firstnameInput").val("");
+   $("#lastnameInput").val("");
+   $("#idInput").val("");
+   $("#titleInput").val("");
+   $("#annualsalaryInput").val("");
+
+   calculateAndAppendSum();
 }
+
+function calculateAndAppendSum() {
+  let sum = 0;
+
+  // Add salarys to monthly cost
+  $("#table td:nth-child(5)").each(function () {
+    const annualSalary = parseInt($(this).text(), 10);
+    if (!isNaN(annualSalary)) {
+      sum += annualSalary;
+    }
+  });
+
+  // Append the sum to the footer
+  $("footer").html(`<h5>Total Monthly Cost: $${sum}</h5>`);
+}
+
