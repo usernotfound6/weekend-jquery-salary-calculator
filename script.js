@@ -43,11 +43,8 @@ function handleSubmit(event) {
     </tr>`);
 
   // Clear input fields
-  $("#firstnameInput").val("");
-  $("#lastnameInput").val("");
-  $("#idInput").val("");
-  $("#titleInput").val("");
-  $("#annualsalaryInput").val("");
+  
+  $('form')[0].reset();
 
   calculateAndAppendSum();
 }
@@ -58,14 +55,12 @@ function calculateAndAppendSum() {
   // Add salarys to monthly cost
   $("#table td:nth-child(5)").each(function () {
     const annualSalary = parseInt($(this).text(), 10);
-    if (!isNaN(annualSalary)) {
-      sum += annualSalary;
-    }
-  });
+     sum += Math.floor(annualSalary /12);
+    });
 
   // Append the sum to the footer
   const footer = $("footer");
-  footer.html(`<h5>Total Annual Salary: $${sum}</h5>`);
+  footer.html(`<h5>Total Monthly Cost: $${sum}</h5>`);
 
   // Add red background color if total annual salary exceeds $20,000
   if (sum > 20000) {
